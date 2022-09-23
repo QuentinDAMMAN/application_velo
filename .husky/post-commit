@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "🤜 Yeah, ton commit il est trop BG™ ! 🤛"
+echo "🤜 Yeah, ton commit est validé ! 🤛"
+echo "-----------------------------------------"
+echo "\n les 5 derniers commits :"
+git log --oneline --graph --all -n 5
