@@ -5,3 +5,4 @@ echo "🤜 Yeah, ton commit est validé ! 🤛"
 echo "-----------------------------------------"
 echo "\n les 5 derniers commits :"
 git log --oneline --graph --all -n 5
+echo "-----------------------------------------"

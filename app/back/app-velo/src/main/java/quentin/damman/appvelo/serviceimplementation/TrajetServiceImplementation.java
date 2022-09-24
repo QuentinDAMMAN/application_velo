@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import quentin.damman.appvelo.model.Trajet;
@@ -22,8 +23,37 @@ public class TrajetServiceImplementation implements TrajetService {
 		return listTrajet;
 	}
 
-	public void create(Trajet trajet) {
-		trajetRepository.save(trajet);    
+	public Trajet create(Trajet trajet) {
+		return trajetRepository.save(trajet);
+	}
+
+	public Trajet getById(int id) {
+		return trajetRepository.findById(id).orElse(null);
+	}
+
+//	public Trajet getByName(String nom) {
+//		return trajetRepository.findByNom(nom).orElse(null);
+//	}
+
+	public String deleteById(int id) {
+		try {
+			trajetRepository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			// TODO: handle exception
+		}
+		return "trajet retiré !! " + id;
+	}
+
+	public Trajet update(Trajet trajet) {
+		Trajet trajetExistant = trajetRepository.findById(trajet.getId()).orElse(null);
+
+		trajetExistant.setNom(trajet.getNom());
+		trajetExistant.setDepart(trajet.getDepart());
+		trajetExistant.setArrive(trajet.getArrive());
+		trajetExistant.setDistance(trajet.getDistance());
+		trajetExistant.setTemps(trajet.getTemps());
+
+		return trajetRepository.save(trajetExistant);
 	}
 
 }

@@ -6,8 +6,14 @@ import quentin.damman.appvelo.model.Trajet;
 
 public interface TrajetService {
 
-	void create(Trajet trajet);
+	Trajet create(Trajet trajet);
 
 	List<Trajet> getAll();
+
+	Trajet getById(int id);
+
+	String deleteById(int id);
+
+	Trajet update(Trajet product);
 
 }

@@ -12,16 +12,12 @@ public class Trajet {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	private int id;
 
-	String nom;
-
-	String depart;
-
-	String arrive;
-
-	int distance;
-
-	Date temps;
+	private String nom;
+	private String depart;
+	private String arrive;
+	private int distance;
+	private Date temps;
 
 }

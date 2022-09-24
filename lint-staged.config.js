@@ -1,5 +1,5 @@
 module.exports = {
-  "*.{js,json,md,mdx,html,css,scss}": "prettier --write",
+  "*.{yml,yaml,js,json,md,mdx,html,css,scss}": "prettier --write",
   /*arrowParens: 'always',
     jsxSingleQuote: true,
     semi: false,
